@@ -15,7 +15,7 @@ aws s3 --profile Ruan --region ap-southeast-2 mb s3://aws-workshop-ruan
 sam package --profile Ruan --region ap-southeast-2 --template-file template.yaml --output-template-file packaged.yaml --s3-bucket aws-workshop-ruan
 ```
 
-After this command you get a output from the terminal:
+After this command I got this from terminal:
 
 ```
 Successfully packaged artifacts and wrote output template to file packaged.yaml.
