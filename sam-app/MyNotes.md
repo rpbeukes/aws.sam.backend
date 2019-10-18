@@ -12,6 +12,9 @@
 
 ```javascript
 aws s3 --profile Ruan --region ap-southeast-2 mb s3://aws-workshop-ruan
+```
+
+```javascript
 sam package --profile Ruan --region ap-southeast-2 --template-file template.yaml --output-template-file packaged.yaml --s3-bucket aws-workshop-ruan
 ```
 
