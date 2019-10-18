@@ -1,0 +1,13 @@
+{
+  "name": "aws-sam-backend-playgound",
+  "version": "1.0.0",
+  "description": "Playing with SAM",
+  "license": "MIT",
+  "dependencies": {},
+  "scripts": {
+    "create-sample-data": "node create-sample-data.js"
+  },
+  "devDependencies": {
+    "cuid": "^2.1.6"
+  }
+}
