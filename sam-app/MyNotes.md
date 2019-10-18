@@ -1,10 +1,10 @@
 ### Commands
 
-Build:
+## Build:
 
 `sam build`
 
-Package:
+## Package:
 
 - create a bucket for the packaged code
 
@@ -22,10 +22,16 @@ Successfully packaged artifacts and wrote output template to file packaged.yaml.
 Execute the following command to deploy the packaged template
 aws cloudformation deploy --template-file /Users/ruanbeukes/repos/sas-frontend/backend/sam-app/packaged.yaml --stack-name <YOUR STACK NAME>
 ```
+### Deploy:
+`aws cloudformation deploy --profile Ruan --region ap-southeast-2 --template-file packaged.yaml --stack-name AWSWorkshopRuan --capabilities CAPABILITY_IAM`
 
-`aws cloudformation deploy --profile Ruan --region ap-southeast-2 --template-file packaged.yaml --stack-name AWSWorkshopRuan`
+At first I tried it without the `--capabilities CAPABILITY_IAM`:
 
-That command failed with:
+```
+aws cloudformation deploy --profile Ruan --region ap-southeast-2 --template-file packaged.yaml --stack-name AWSWorkshopRuan
+```
+
+and got this error:
 ```
 Waiting for changeset to be created..
 
@@ -33,7 +39,6 @@ Failed to create the changeset: Waiter ChangeSetCreateComplete failed: Waiter en
 ```
 
 This did the trick:
-`aws cloudformation deploy --profile Ruan --region ap-southeast-2 --template-file packaged.yaml --stack-name AWSWorkshopRuan --capabilities CAPABILITY_IAM`
 
 Cloudformation describe-stacks:
 ```yaml
