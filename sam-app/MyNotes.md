@@ -37,10 +37,7 @@ Waiting for changeset to be created..
 
 Failed to create the changeset: Waiter ChangeSetCreateComplete failed: Waiter encountered a terminal failure state Status: FAILED. Reason: Requires capabilities : [CAPABILITY_IAM]
 ```
-
-This did the trick:
-
-Cloudformation describe-stacks:
+##### Cloudformation describe-stacks:
 ```yaml
 aws cloudformation --profile Ruan --region ap-southeast-2 describe-stacks --stack-name AWSWorkshopRuan --query 'Stacks[].Outputs[?OutputKey==`HelloWorldApi`]'
 
