@@ -30,8 +30,12 @@ Successfully packaged artifacts and wrote output template to file packaged.yaml.
 Execute the following command to deploy the packaged template
 aws cloudformation deploy --template-file /Users/ruanbeukes/repos/sas-frontend/backend/sam-app/packaged.yaml --stack-name <YOUR STACK NAME>
 ```
+
 ### Deploy:
-`aws cloudformation deploy --profile Ruan --region ap-southeast-2 --template-file packaged.yaml --stack-name AWSWorkshopRuan --capabilities CAPABILITY_IAM`
+
+```
+aws cloudformation deploy --profile Ruan --region ap-southeast-2 --template-file packaged.yaml --stack-name AWSWorkshopRuan --capabilities CAPABILITY_IAM
+```
 
 At first I tried it without the `--capabilities CAPABILITY_IAM`:
 
