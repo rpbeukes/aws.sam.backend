@@ -57,7 +57,7 @@ aws cloudformation --profile Ruan --region ap-southeast-2 describe-stacks --stac
 aws cloudformation --profile Ruan --region ap-southeast-2 describe-stacks --stack-name AWSWorkshopRuan --query 'Stacks[].Outputs[?OutputKey==`HelloWorldApi`]' --output table
 ```
 
-Publish: 
+### Publish 
 `sam publish --profile Ruan --region ap-southeast-2`
 
 **Note**: Add metadata to `template.yaml`
