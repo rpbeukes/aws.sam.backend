@@ -71,3 +71,9 @@ Metadata:
 ```
 
 The `publish` will end up creating a `Serverless Application Repository`.
+
+### Automate - Build, Package and Deploy
+
+- create file `build-and-deploy.sh`.
+- `chmod u+x build-and-deploy.sh`; ([chmod](https://ss64.com/osx/chmod.html), [Run a bash shell script](https://ss64.com/osx/syntax-shellscript.html))
+- run script `./build-and-deploy.sh`
