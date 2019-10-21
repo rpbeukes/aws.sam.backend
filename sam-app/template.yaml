@@ -49,10 +49,22 @@ Resources:
         Handler: app.lambdaHandler
         Runtime: nodejs10.x
         Events:
-          HelloWorld:
+          Items:
             Type: Api 
             Properties:
               Path: /items
+              Method: get
+  ItemsByIdFunction:
+      Type: AWS::Serverless::Function 
+      Properties:
+        CodeUri: item-by-id/
+        Handler: app.lambdaHandler
+        Runtime: nodejs10.x
+        Events:
+          ItemsById:
+            Type: Api 
+            Properties:
+              Path: /items/id/{id}
               Method: get
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
@@ -66,6 +78,15 @@ Outputs:
     Value: !GetAtt ItemsFunction.Arn
   ItemsFunctionIamRole:
     Description: "Implicit IAM Role created for Items function"
+    Value: !GetAtt ItemsFunctionRole.Arn
+  ItemsByIdApi:
+    Description: "API Gateway endpoint URL for Prod stage for Items by Id API function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/items/id/{id}"
+  ItemsByIdFunction:
+    Description: "Items by Id Lambda Function ARN"
+    Value: !GetAtt ItemsFunction.Arn
+  ItemsByIdFunctionIamRole:
+    Description: "Implicit IAM Role created for Items by Id function"
     Value: !GetAtt ItemsFunctionRole.Arn
   HelloWorldApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
