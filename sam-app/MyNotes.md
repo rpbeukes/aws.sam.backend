@@ -33,6 +33,12 @@ aws cloudformation deploy --template-file /Users/ruanbeukes/repos/sas-frontend/b
 
 ### Deploy:
 
+#### SAM Cli
+```
+sam deploy --profile Ruan --region ap-southeast-2 --template-file ./packaged.yaml --stack-name AWSWorkshopRuan --capabilities CAPABILITY_IAM
+```
+
+#### AWS Cli
 ```
 aws cloudformation deploy --profile Ruan --region ap-southeast-2 --template-file packaged.yaml --stack-name AWSWorkshopRuan --capabilities CAPABILITY_IAM
 ```
@@ -77,3 +83,6 @@ The `publish` will end up creating a `Serverless Application Repository`.
 - create file `build-and-deploy.sh`.
 - `chmod u+x build-and-deploy.sh`; ([chmod](https://ss64.com/osx/chmod.html), [Run a bash shell script](https://ss64.com/osx/syntax-shellscript.html))
 - run script `./build-and-deploy.sh`
+
+### CORS
+[Enable CORS for an API Gateway REST API Resource](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html)
