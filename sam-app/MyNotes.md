@@ -10,9 +10,9 @@
 `sam build`
 
 This command outputs directory: `.aws-sam/build`.
-This is also the directory where you will run `sam package` and `sam deploy`.
+You also want to package and publish from directory `.aws-sam/build`.
 
-If you run `sam package` and `sam publish` from your `sam-app` directory you might end up with test code in your lambda - not cool :)
+If you run `sam package` and `sam publish` from your `sam-app` directory, you might end up with test code in your lambda - not cool :)
 
 ## Package:
 
