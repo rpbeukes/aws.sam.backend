@@ -9,6 +9,11 @@
 
 `sam build`
 
+This commands output is: `.aws-sam/build`.
+This is also the folder where you will run `sam package` and `sam deploy`.
+
+If `package` and `publish` from your `sam-app` folder you might end up with test code in your lambda - not cool :)
+
 ## Package:
 
 - create a bucket for the packaged code
