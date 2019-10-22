@@ -3,7 +3,21 @@
 
 - [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 
-### Commands
+## Main Commands
+- build
+- package
+- deploy
+
+
+```
+sam build  
+```
+```
+sam package --profile Ruan --region ap-southeast-2 --template-file template.yaml --output-template-file packaged.yaml --s3-bucket aws-workshop-ruan 
+```
+```
+sam deploy --profile Ruan --region ap-southeast-2 --template-file ./packaged.yaml --stack-name AWSWorkshopRuan --capabilities CAPABILITY_IAM
+```
 
 ## Build:
 
@@ -88,6 +102,9 @@ The `publish` will end up creating a `Serverless Application Repository`.
 - create file `build-and-deploy.sh`.
 - `chmod u+x build-and-deploy.sh`; ([chmod](https://ss64.com/osx/chmod.html), [Run a bash shell script](https://ss64.com/osx/syntax-shellscript.html))
 - run script `./build-and-deploy.sh`
+
+### Resources
+[SAM CLI command reference](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.html)
 
 ### CORS
 [Enable CORS for an API Gateway REST API Resource](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html)
