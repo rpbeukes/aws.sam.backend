@@ -66,6 +66,30 @@ Resources:
             Properties:
               Path: /items/id/{id}
               Method: get
+  LoansByStatusFunction:
+      Type: AWS::Serverless::Function 
+      Properties:
+        CodeUri: loans-by-status/
+        Handler: app.lambdaHandler
+        Runtime: nodejs10.x
+        Events:
+          LoansByStatus:
+            Type: Api 
+            Properties:
+              Path: /loans/status/{status}
+              Method: get
+  LoansByIdFunction:
+      Type: AWS::Serverless::Function 
+      Properties:
+        CodeUri: loans-by-id/
+        Handler: app.lambdaHandler
+        Runtime: nodejs10.x
+        Events:
+          LoansById:
+            Type: Api 
+            Properties:
+              Path: /loans/id/{id}
+              Method: get
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM
@@ -84,10 +108,28 @@ Outputs:
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/items/id/{id}"
   ItemsByIdFunction:
     Description: "Items by Id Lambda Function ARN"
-    Value: !GetAtt ItemsFunction.Arn
+    Value: !GetAtt ItemsByIdFunction.Arn
   ItemsByIdFunctionIamRole:
     Description: "Implicit IAM Role created for Items by Id function"
-    Value: !GetAtt ItemsFunctionRole.Arn
+    Value: !GetAtt ItemsByIdFunctionRole.Arn
+  LoansByIdApi:
+    Description: "API Gateway endpoint URL for Prod stage for Loans by Id API function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/loans/id/{id}"
+  LoansByIdFunction:
+    Description: "Loans by Id Lambda Function ARN"
+    Value: !GetAtt LoansByIdFunction.Arn
+  LoansByIdFunctionIamRole:
+    Description: "Implicit IAM Role created for Loans by Id function"
+    Value: !GetAtt LoansByIdFunctionRole.Arn
+  LoansByStatusApi:
+    Description: "API Gateway endpoint URL for Prod stage for Loans by Status API function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/loans/status/{status}"
+  LoansByStatusFunction:
+    Description: "Loans by Status Lambda Function ARN"
+    Value: !GetAtt LoansByStatusFunction.Arn
+  LoansByStatusFunctionIamRole:
+    Description: "Implicit IAM Role created for Loans by Status function"
+    Value: !GetAtt LoansByStatusFunctionRole.Arn
   HelloWorldApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
